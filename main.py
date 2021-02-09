@@ -1,7 +1,7 @@
 import sys
 
 from PyQt5.QtWidgets import QApplication
-from MapWidget import MapWidget
+from Map_no2 import MapWidget
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
