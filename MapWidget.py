@@ -22,6 +22,15 @@ class MapWidget(QWidget):
         self.resize(self.window_size[0], self.window_size[1])
         self.set_map_image()
 
+        self.comboBox.activated[str].connect(self.change_style)
+        self.setFocus()
+
+    def change_style(self, text):
+        global L
+        L = {'Схема': 'map', 'Спутник': 'sat', 'Гибрид': 'sat,skl'}[text]
+        self.set_map_image()
+        self.setFocus()
+
     def keyPressEvent(self, e):
         if e.key() == Qt.Key_PageUp:
             spn1 = float(self.spn.split(",")[0]) - 0.005 * self.lat_dependence
